@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import moment from 'moment'
 import './App.css'
 
 const api = {
@@ -54,15 +55,7 @@ function App() {
     return `${day} ${date} ${month} ${year}`
   }
   return (
-    <div
-      className={
-        typeof weather.main != 'undefined'
-          ? weather.main.temp > 18
-            ? 'app-warm'
-            : 'app'
-          : 'app'
-      }
-    >
+    <div className={typeof weather.main != 'undefined' ? 'app' : ''}>
       <main>
         <div className='search-box'>
           <input
@@ -78,19 +71,53 @@ function App() {
         {typeof weather.main != 'undefined' ? (
           <div className='Box'>
             <div className='location-box'>
-              <div className='location'>
+              <span className='location'>Your Location</span>
+              <span className='city'>
                 {weather.name},{weather.sys.country}
-              </div>
-              <div className='date'>{dateBuilder(new Date())}</div>
+              </span>
+              <span className='date'>{dateBuilder(new Date())}</span>
             </div>
             <div className='weather-box'>
+              <div className='cold-icon'>0</div>
               <div className='temp'>
-                {Math.round(weather.main.temp)}&deg;c <br />
-                <span className='feel'>
-                  Feels like: {Math.round(weather.main.feels_like)}&deg;c
+                <span className='deg'>
+                  {Math.round(weather.main.temp)}&deg;C
                 </span>
               </div>
-              <div className='weather'>{weather.weather[0].description}</div>
+            </div>
+            <div className='Other-info1'>
+              <div className='Small'>
+                <span className='Icon'>*</span>
+                <span className='wind'>54k/h</span>
+              </div>
+              <div className='Small'>
+                <span className='Icon'>*</span>
+                <span className='Humdity'>54k/h</span>
+              </div>
+              <div className='Small'>
+                <span className='Icon'>*</span>
+                <span className='temp'>54k/h</span>
+              </div>
+            </div>
+            <div className='Other-info2'>
+              <div className='Box1'>
+                <div className='Inner-Box'>
+                  <span> Feels like</span>
+                  <span className='Right'>
+                    {Math.round(weather.main.feels_like)}&deg;c
+                  </span>
+                </div>
+                <div className='Inner-Box'>
+                  <span>Description</span>
+                  <span className='Right'>
+                    {weather.weather[0].description}
+                  </span>
+                </div>
+                <div className='Inner-Box'>
+                  <span>Wind Speed</span>
+                  <span className='Right'>{weather.wind.speed}Km/h</span>
+                </div>
+              </div>
             </div>
           </div>
         ) : (

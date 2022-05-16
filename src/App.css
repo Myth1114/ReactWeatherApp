@@ -9,10 +9,9 @@
   }
   
   .app {
-    background-image: url('./assets/cold-1.jpg');
-    background-size: cover;
-    background-position: center;
-    /* transition: all 1 ease-in-out; */
+    background-color: #fff;
+    min-height: 100vh;
+    position: relative;
   }
   
   .app-warm {
@@ -23,73 +22,73 @@
   }
   
   main {
-    min-height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
-    padding: 25px;
-
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+   background-color: #100d2c;
+padding: 3rem;
+  
   }
   
   .search-box {
     width: 100%;
-    margin: 20px auto;
+    margin-bottom: 20px;
   }
   
   .search-box .search-bar {
     display: block;
     width: 100%;
-    padding: 15px;
-  
+    padding: .9rem;
     appearance: none;
     background: none;
-    border: none;
+    border: .5px solid #fff;
     outline: none;
   
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 0px 0px 16px 16px;
-    margin-top: -25px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    border-radius: .4rem;
+    /* margin-top: -25px; */
   
-    box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 5px rgba(0, 0, 0, 0.2); */
     
-    color: #313131;
-    font-size: 20px;
+    color: #fff;
+    font-size: 1rem;
   
     transition: 0.4s ease;
   }
   
-  .search-box .search-bar:focus {
+  /* .search-box .search-bar:focus {
     background-color: rgba(255, 255, 255, 0.75);
+  } */
+  .location-box{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
   }
+  .location-box .location, .location-box .date {
+   color: #ccc;
+   opacity: .8;
+   font-size: .8rem;
+  }
+  .location-box .city {
+    color: #fff;
+    font-size: 1.5rem;
+   }
   
-  .location-box .location {
-    color: #FFF;
-    font-size: 32px;
-    font-weight: 500;
-    text-align: center;
-    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-  }
-  
-  .location-box .date {
-    color: #FFF;
-    font-size: 20px;
-    font-weight: 300;
-    font-style: italic;
-    text-align: center;
-    text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
-  }
+ 
   
   .weather-box {
     text-align: center;
-  }
-  
-  .weather-box .temp {
-    position: relative;
     display: flex;
     flex-direction: column;
-    margin: 30px auto;
+  }
+  
+  .weather-box  {
+   display: flex  ;
+   flex-direction: column;
+    /* font-size: 4rem; */
+    color: #fff;
+    /* margin: 30px auto;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     padding: 15px 25px;
@@ -100,16 +99,51 @@
   
     text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
     text-align: center;
-    box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 6px rgba(0, 0, 0, 0.2); */
   }
   
-  .weather-box .weather {
-    color: #FFF;
-    font-size: 48px;
-    font-weight: 700;
-    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  .weather-box .temp {
+   font-size: 4rem;
+   margin: .5rem;
   }
   .weather-box .feel{
       font-size: .7rem;
       text-shadow: none;
+  }
+
+  .Other-info1{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: .9rem;  
+  }
+  .Other-info1 .Small{
+    display: flex;
+    align-items: center;
+  }
+  .Other-info1 .Small .Icon{
+    text-align: center;
+    font-size: 1rem;
+    color: #a765d1;
+    margin:0 .3rem;
+  }
+
+  .Other-info2{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  margin-top: 2rem;
+  }
+  .Other-info2 .Box1{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .Other-info2 .Box1 .Inner-Box{
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+  }
+  .Other-info2 .Box1 .Inner-Box .Right{
+color: #a765d1;
   }
