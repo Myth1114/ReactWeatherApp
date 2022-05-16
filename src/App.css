@@ -9,9 +9,12 @@
   }
   
   .app {
-    background-color: #fff;
+    /* background-color: #fff; */
     min-height: 100vh;
     position: relative;
+    background-image: url('./assets/Background3.jpg');
+    background-size: cover;
+    background-position: center;
   }
   
   .app-warm {
@@ -24,13 +27,23 @@
   main {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 46%;
     transform: translate(-50%,-50%);
    background-color: #100d2c;
-padding: 3rem;
+/* padding: 6rem; */
+width: 90%;
+    height: auto;
+    /* padding: 3rem; */
+    /* margin: 1rem auto; */
+    padding: 2rem;
   
   }
-  
+  @media (min-width:920px){
+    main{
+      top: 50%;
+      width: 40%;
+    }
+  }
   .search-box {
     width: 100%;
     margin-bottom: 20px;
@@ -77,15 +90,17 @@ padding: 3rem;
   
  
   
-  .weather-box {
+  /* .weather-box {
     text-align: center;
     display: flex;
     flex-direction: column;
-  }
+  } */
   
   .weather-box  {
    display: flex  ;
+   align-items: center;
    flex-direction: column;
+   margin: 1rem;
     /* font-size: 4rem; */
     color: #fff;
     /* margin: 30px auto;
@@ -101,10 +116,15 @@ padding: 3rem;
     text-align: center;
     box-shadow: 3px 6px rgba(0, 0, 0, 0.2); */
   }
-  
+  .weather-box img{
+    width: 4rem;
+  }
   .weather-box .temp {
    font-size: 4rem;
    margin: .5rem;
+  }
+  .weather-box .type{
+    font-size: 1.3rem;
   }
   .weather-box .feel{
       font-size: .7rem;
@@ -123,9 +143,9 @@ padding: 3rem;
   }
   .Other-info1 .Small .Icon{
     text-align: center;
-    font-size: 1rem;
-    color: #a765d1;
-    margin:0 .3rem;
+    font-size: 1.2rem;
+    color: #f9e44d;
+    /* margin:0 .3rem; */
   }
 
   .Other-info2{
@@ -143,7 +163,8 @@ padding: 3rem;
     display: flex;
     justify-content: space-between;
     font-size: .8rem;
+    margin: 0.2rem 0;
   }
   .Other-info2 .Box1 .Inner-Box .Right{
-color: #a765d1;
+color: #f9e44d;
   }

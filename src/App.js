@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { FiDroplet } from 'react-icons/fi'
+import { BiCrosshair } from 'react-icons/bi'
+import { DiDigitalOcean } from 'react-icons/di'
 // import moment from 'moment'
 import './App.css'
 
@@ -55,7 +58,7 @@ function App() {
     return `${day} ${date} ${month} ${year}`
   }
   return (
-    <div className={typeof weather.main != 'undefined' ? 'app' : ''}>
+    <div className={typeof weather.main != 'undefined' ? 'app' : 'app'}>
       <main>
         <div className='search-box'>
           <input
@@ -78,25 +81,43 @@ function App() {
               <span className='date'>{dateBuilder(new Date())}</span>
             </div>
             <div className='weather-box'>
-              <div className='cold-icon'>0</div>
+              <div className='cold-icon'>
+                <img
+                  src={
+                    weather.main.temp >= 30
+                      ? './Images/sun.png'
+                      : '/Images/cloudy.png'
+                  }
+                  alt='vv'
+                />
+              </div>
               <div className='temp'>
                 <span className='deg'>
                   {Math.round(weather.main.temp)}&deg;C
                 </span>
               </div>
+              <div className='type'>
+                <span> {weather.weather[0].description}</span>
+              </div>
             </div>
             <div className='Other-info1'>
               <div className='Small'>
-                <span className='Icon'>*</span>
-                <span className='wind'>54k/h</span>
+                <span className='Icon'>
+                  <BiCrosshair />
+                </span>
+                <span className='wind'>{weather.main.pressure}</span>
               </div>
               <div className='Small'>
-                <span className='Icon'>*</span>
-                <span className='Humdity'>54k/h</span>
+                <span className='Icon'>
+                  <FiDroplet />
+                </span>
+                <span className='Humdity'>{weather.main.humidity}</span>
               </div>
               <div className='Small'>
-                <span className='Icon'>*</span>
-                <span className='temp'>54k/h</span>
+                <span className='Icon'>
+                  <DiDigitalOcean />
+                </span>
+                <span className='temp'>{weather.main.sea_level}</span>
               </div>
             </div>
             <div className='Other-info2'>
@@ -107,15 +128,14 @@ function App() {
                     {Math.round(weather.main.feels_like)}&deg;c
                   </span>
                 </div>
-                <div className='Inner-Box'>
-                  <span>Description</span>
-                  <span className='Right'>
-                    {weather.weather[0].description}
-                  </span>
-                </div>
+
                 <div className='Inner-Box'>
                   <span>Wind Speed</span>
-                  <span className='Right'>{weather.wind.speed}Km/h</span>
+                  <span className='Right'>{weather.wind.speed} Km/h</span>
+                </div>
+                <div className='Inner-Box'>
+                  <span>Wind Gust</span>
+                  <span className='Right'>{weather.wind.gust} Km/h</span>
                 </div>
               </div>
             </div>
