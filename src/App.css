@@ -1,11 +1,18 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
+html {
+  box-sizing: border-box;
+  /* font-size: 62.5%;   */
+}
 body {
-  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 .app {
@@ -33,13 +40,16 @@ main {
   transform: translate(-50%, -50%); */
   background-color: #000;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 0.5rem;
 }
-@media (min-width: 920px) {
+@media (min-width: 768px) {
+  .app {
+    display: flex;
+    justify-content: center;
+  }
   main {
-    top: 50%;
-    width: 40%;
+    width: 60%;
   }
 }
 .search-box {
@@ -89,7 +99,7 @@ main {
 header {
   background-color: black;
   color: white;
-  padding: .5rem;
+  padding: 0.5rem;
   margin: 0.5rem 0;
 }
 
@@ -99,7 +109,16 @@ header {
   justify-content: space-between;
   height: 2rem;
 }
-.header-container h3{
+.header-container .Country{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-container .Country small{
+  font-size: .7rem;
+  color: #b7b7b7;
+}
+.header-container h3 {
   text-transform: uppercase;
 }
 .Box {
@@ -147,7 +166,58 @@ header {
   background-color: red;
   color: #fff;
 }
+.Container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  /* place-items: center; */
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
 
+.ContainerBox {
+  /* height: 13rem;
+  width: 13.5rem; */
+  border-radius: 1rem;
+  background-color: rgb(57, 56, 56);
+  color: #fff;
+  display: grid;
+  height: 12rem;
+  align-items: center;
+  letter-spacing: 2px;
+}
+@media (max-width:400px){
+  .Container .ContainerBox{
+    height: 10rem;
+  }
+}
+.Container .FeelsLike{
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+.ContainerBox .Icon {
+  width: 5rem;
+}
+.ContainerBox .Number{
+  font-size: 2rem;
+}
+.ContainerBox .Name, .ContainerBox .Number{
+  margin-left: .5rem;
+}
+small{
+  font-size: 1rem;
+}
+.Temp{
+  background-color: #fff;
+  color: #000;
+  font-size: 3.5rem;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 /* .weather-box {
     text-align: center;
     display: flex;
