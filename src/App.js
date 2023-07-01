@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { FiSettings } from "react-icons/fi";
-import { WiHumidity } from "react-icons/wi";
-import { FaTemperatureHigh } from "react-icons/fa";
-// import { FiDroplet } from 'react-icons/fi'
-// import { BiCrosshair } from 'react-icons/bi'
-// import { DiDigitalOcean } from 'react-icons/di'
-// import moment from 'moment'
+
 import "./App.css";
 
 const api = {
@@ -89,10 +84,9 @@ function App() {
             </div>
             {typeof weather.current != "undefined" ? (
               <div className="Country">
-                 <span>{weather.location.name}</span>
-                 <small>{dateBuilder(new Date())}</small>
+                <span>{weather.location.name}</span>
+                <small>{dateBuilder(new Date())}</small>
               </div>
-             
             ) : (
               ""
             )}
@@ -103,8 +97,13 @@ function App() {
             </div>
           </div>
         </header>
+
         {typeof weather.current != "undefined" ? (
           <div className="MainContainer">
+            <div className="WeatherIcon">
+              <img src={weather.current.condition.icon} alt="t3"></img>
+              <small>{weather.current.condition.text}</small>
+            </div>
             <div className="Box">
               <div className="LeftBox">
                 <span>{Math.round(weather.current.temp_c)}&deg;c</span>
@@ -112,6 +111,7 @@ function App() {
               <div className="RightBox">
                 <div className="Circle AirQuality">
                   <span>{weather.current.humidity}</span>
+
                   <small>Humidity</small>
                 </div>
                 <div
@@ -194,7 +194,7 @@ function App() {
               <div className="ContainerBox">
                 <span className="Name">Wind Speed</span>
                 <span className="Icon">
-                  <WiHumidity style={{ width: "5rem" }} />
+                  <img src="/images/wind.png" alt="wind speed" />
                 </span>
                 <span className="Number">
                   {Math.round(weather.current.wind_kph)}
@@ -204,7 +204,7 @@ function App() {
               <div className="ContainerBox">
                 <span className="Name">Fahrenheit</span>
                 <span className="Icon">
-                  <FaTemperatureHigh />
+                  <img src="/images/fah.png" alt="wind speed" />
                 </span>
                 <span className="Number">
                   {Math.round(weather.current.temp_f)}&deg;F
@@ -213,21 +213,34 @@ function App() {
               <div className="ContainerBox">
                 <span className="Name">Precipitation</span>
                 <span className="Icon">
-                  <WiHumidity />
+                  <img src="/images/raining.png" alt="wind speed" />
                 </span>
                 <span className="Number">{weather.current.precip_in}</span>
               </div>
               <div className="ContainerBox">
-                <span className="Name">Gust</span>
+                <span className="Name">Gust Speed</span>
                 <span className="Icon">
-                  <WiHumidity />
+                  <img src="/images/gust.png" alt="wind speed" />
                 </span>
                 <span className="Number">
                   {Math.round(weather.current.gust_kph)}
                   <small>kph</small>
                 </span>
               </div>
-              <div className="ContainerBox"></div>
+              <div className="ContainerBox">
+                <span className="Name">UV Index</span>
+                <span className="Icon">
+                  <img src="/images/uv.png" alt="wind speed" />
+                </span>
+                <span className="Number">
+                  {weather.current.uv}
+                  {weather.current.uv > 7 ? (
+                    <small>High</small>
+                  ) : (
+                    <small>Low</small>
+                  )}
+                </span>
+              </div>
               <div className="ContainerBox Temp">
                 <span>{Math.round(weather.current.feelslike_c)}&deg;c</span>
                 <span className="FeelsLike">Feels Like</span>

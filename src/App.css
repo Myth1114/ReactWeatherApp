@@ -14,7 +14,13 @@ body {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
-
+img {
+  width: 100%;
+  vertical-align: middle;
+  transition: all 0.3s ease-in-out;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
 .app {
   /* background-color: #fff; */
   min-height: 100vh;
@@ -121,6 +127,20 @@ header {
 .header-container h3 {
   text-transform: uppercase;
 }
+.MainContainer .WeatherIcon{
+  display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: center;
+    margin: 3rem 0;
+}
+.MainContainer .WeatherIcon small{
+  font-size: .7rem;
+    color: #b7b7b7;
+}
+.MainContainer .WeatherIcon img{
+  width: 10rem;
+}
 .Box {
   display: flex;
   justify-content: space-between;
@@ -168,7 +188,7 @@ header {
 }
 .Container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   /* place-items: center; */
   gap: 0.5rem;
   margin-top: 1rem;
@@ -196,6 +216,7 @@ header {
 }
 .ContainerBox .Icon {
   width: 5rem;
+  justify-self: center;
 }
 .ContainerBox .Number{
   font-size: 2rem;
